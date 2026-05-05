@@ -20,13 +20,11 @@ class ExecutiveHandler : Handler {
      * @return Răspunsul primit de la handler-ul următor
      */
     override suspend fun handleRequest(message: String): String {
-        // TODO("De implementat")
-        // Pași de urmat:
-        // 1. Simulați procesarea: delay(100)
-        // 2. Logați primirea cererii: println("[Executive] Am primit: $message")
-        // 3. Delegați la next: val raspuns = next?.handleRequest(message) ?: message
-        // 4. Logați răspunsul: println("[Executive] Răspuns: $raspuns")
-        // 5. Returnați răspunsul
-        TODO("De implementat: procesează asincron și delegă la next handler")
+        delay(100)
+        val cerere = "Request - $message"
+        println("[Executive] Trimit cererea: $cerere")
+        val raspuns = next?.handleRequest(cerere) ?: cerere
+        println("[Executive] Am primit răspunsul: $raspuns")
+        return raspuns
     }
 }

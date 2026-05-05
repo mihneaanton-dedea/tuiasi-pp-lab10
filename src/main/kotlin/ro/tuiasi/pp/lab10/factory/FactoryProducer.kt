@@ -1,5 +1,8 @@
 package ro.tuiasi.pp.lab10.factory
 
+import javax.swing.DefaultListSelectionModel
+import kotlin.io.encoding.Base64
+
 /**
  * Factory producer — returnează factory-ul potrivit în funcție de tipul cerut.
  *
@@ -17,11 +20,10 @@ object FactoryProducer {
      * @throws IllegalArgumentException dacă tipul nu este recunoscut
      */
     fun getFactory(type: String): Factory {
-        // TODO("De implementat")
-        // Folosiți when(type.uppercase()) pentru a returna factory-ul corespunzător:
-        // "ELITE" → EliteFactory()
-        // "HAPPY_WORKER" → HappyWorkerFactory()
-        // else → throw IllegalArgumentException("Tip factory necunoscut: $type")
-        TODO("De implementat: returnează factory-ul corespunzător tipului 'ELITE' sau 'HAPPY_WORKER'")
+        return when(type.uppercase()){
+              "ELITE" -> EliteFactory()
+              "HAPPY_WORKER" -> HappyWorkerFactory()
+              else -> throw IllegalArgumentException("Tip factory necounoscut: $type")
+        }
     }
 }

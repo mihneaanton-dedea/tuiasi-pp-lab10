@@ -20,13 +20,11 @@ class ManagerHandler : Handler {
      * @return Răspunsul primit de la HappyWorker
      */
     override suspend fun handleRequest(message: String): String {
-        // TODO("De implementat")
-        // Pași de urmat:
-        // 1. Simulați procesarea: delay(100)
-        // 2. Logați primirea: println("[Manager] Am primit: $message")
-        // 3. Delegați la next: val raspuns = next?.handleRequest(message) ?: message
-        // 4. Logați răspunsul: println("[Manager] Răspuns: $raspuns")
-        // 5. Returnați răspunsul
-        TODO("De implementat: procesează asincron și delegă la next handler")
+        delay(100)
+        val cerere = "Request - $message"
+        println("[Manager] Trimit cererea: $cerere")
+        val raspuns = next?.handleRequest(cerere) ?: "Response - $message"
+        println("[Manager] Am primit răspunsul: $raspuns")
+        return raspuns
     }
 }
